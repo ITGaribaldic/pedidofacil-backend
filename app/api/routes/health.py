@@ -1,4 +1,5 @@
 from fastapi import APIRouter
+from app.core.logger_config import logger  # Usa logger global
 
 # Criar router específico para rotas relacionadas à saúde da API
 router = APIRouter()
@@ -10,4 +11,5 @@ def health_check():
     Retorna status da aplicação.
     Pode ser usado para monitoramento ou verificação rápida.
     """
+    logger.info("Endpoint /health acessado")
     return {"status": "ok"}

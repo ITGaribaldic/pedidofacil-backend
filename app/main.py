@@ -1,10 +1,13 @@
 from fastapi import FastAPI
-from app.core.config import settings  # Importa as configurações centralizadas
-from app.api.routes.health import router as health_router  # Importa router do health
+from app.core.config import settings       # Importa configurações
+from app.core.logger_config import logger  # Importa logger global
+from app.api.routes.health import router as health_router
 
-# Criação da aplicação FastAPI com título vindo das configurações
+# Log de inicialização da aplicação
+logger.info(f"Aplicação {settings.app_name} iniciada no ambiente {settings.environment}")
+
+# Criação da aplicação FastAPI
 app = FastAPI(title=settings.app_name)
 
 # Registro dos routers da aplicação
-# Permite separar responsabilidades e manter o main.py limpo
-app.include_router(health_router)
+app.include_router(health_router, prefix="/api")

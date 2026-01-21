@@ -1,13 +1,12 @@
-
-# importa a classe FastAPI do framework
-# FastAPI é o framework backend. Ele vai receber requisições HTTP e gerar respostas.
-
 from fastapi import FastAPI
+from app.core.config import settings
 
-# cria uma instância da aplicação FastAPI e guarda na variável app
-# title:serve para configurar a documentação automática que o FastAPI gera (/docs e /redoc).
-app = FastAPI(title="PedidoFácil Backend" )
+app = FastAPI(title=settings.app_name)
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok"}
+    return {
+        "status": "ok",
+        "environment": settings.environment,
+        "debug": settings.debug
+    }

@@ -10,4 +10,4 @@ logger.info(f"Aplicação {settings.app_name} iniciada no ambiente {settings.env
 app = FastAPI(title=settings.app_name)
 
 # Registro dos routers da aplicação
-app.include_router(health_router, prefix="/api")
+app.include_router(health_router)

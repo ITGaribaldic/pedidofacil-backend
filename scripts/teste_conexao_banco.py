@@ -1,9 +1,11 @@
 from app.core.database import SessionLocal
 from sqlalchemy import text
+
+# Testa a conexão com o banco de dados
 def test_connection():
-    db = SessionLocal()
+    db = SessionLocal() # Cria sessão
     try:
-        db.execute(text("SELECT 1"))
+        db.execute(text("SELECT 1")) # Executa query simples para verificar conexão
         print("Conexão com o banco OK")
     finally:
-        db.close()
+        db.close() # Fecha sessão

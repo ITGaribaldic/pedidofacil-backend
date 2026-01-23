@@ -1,10 +1,9 @@
 import logging
-
-# Configuração global do logger
+# Configuração global do logging
 logging.basicConfig(
-    level=logging.INFO,
-    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s"
+    level=logging.INFO, # Nível de log padrão
+    format="%(asctime)s [%(levelname)s] %(name)s: %(message)s" # Formato das mensagens
 )
 
-# Logger global que será importado por todos os módulos
+# Logger principal da aplicação
 logger = logging.getLogger("pedidofacil")
